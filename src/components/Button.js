@@ -1,23 +1,22 @@
-import { useState } from 'react'
+import { useEffect, useRef } from 'react'
+import Home from './Home';
+import MainCard from './MainCard';
 
 const Button = ( { text } ) => {
-    const [dots, setdot] = useState({dot1: true, dot2: false});
+    const dot = useRef(true);
 
-    const handleClick = () => {
-        setdot(prevState => ({dot1: !prevState.dot1,
-            dot2: !prevState.dot2}) 
-            )
-            console.log(dots.dot1, dots.dot2)
-    }
+    useEffect(() => {
+        dot.current = !dot.current
+    })
 
     return (
         <div className="dotted-button">
-            <button className="btn" onClick={handleClick}>
+            <button className="btn">
                 {text}
             </button>
             <div className="dots">
-            <span className="dot dot1" style={{ backgroundColor: dots.dot2 && '#48c7b1'}}></span>
-            <span className="dot dot2" style={{ backgroundColor: dots.dot1 && '#48c7b1'}}></span>
+            <span className="dot dot1" style={{ backgroundColor: dot.current && '#48c7b1'}}></span>
+            <span className="dot dot2" style={{ backgroundColor: !dot.current && '#48c7b1'}}></span>
             </div>
         </div>
     )
