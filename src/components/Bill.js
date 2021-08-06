@@ -1,29 +1,29 @@
-const Bill = ( { total, setTotal, people, setPeople } ) => {
+const Bill = ( { bill, setBill, tip, setTip, people, setPeople } ) => {
+    
     return (
-        <div className="bill-container">
-            <form>
+            <div className="form">
                 <div className="bill">
-                    <label htmlFor="Bill">Bill</label>
-                    <input name="Bill" id="Bill" value={total} onChange={(e) => setTotal(e.target.value)}/>
+                    <label className="form-label" htmlFor="Bill">Bill Amount (€)</label>
+                    <input name="Bill" type="number" id="Bill" value={bill} onChange={(e) => setBill(e.target.value)}/>
                 </div>
                 
                 <div className="tip">
-                    <h5>Select Tip %</h5>
+                    <p className="form-label">Select Tip %</p>
                     <div className="options">
-                        <button>5%</button>
-                        <button>10%</button>
-                        <button>15%</button>
-                        <button>25%</button>
-                        <button>50%</button>
-                        <input name="CustomTip" id="CustomTip" />
+                        <button onClick={() => setTip(5)}>5%</button>
+                        <button onClick={() => setTip(10)}>10%</button>
+                        <button onClick={() => setTip(15)}>15%</button>
+                        <button onClick={() => setTip(25)}>25%</button>
+                        <button onClick={() => setTip(50)}>50%</button>
+                        <input name="CustomTip" id="CustomTip" placeholder="custom" onChange={(e) => setTip(e.target.value)} />
                     </div>
                 </div>
                 <div className="people">
-                    <label htmlFor="">Number of People</label>
+                    <label className="form-label" htmlFor="">Number of People</label>
                     <input name="PeopleCount" id="People" value={people} onChange={(e) => setPeople(e.target.value)} />
                 </div>
-            </form>
-        </div>
+            </div>
+        
     )
 }
 

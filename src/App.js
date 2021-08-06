@@ -1,18 +1,35 @@
 import Header from './components/Header'
 import MainCard from './components/MainCard';
-import { useState } from 'react'
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
+import Home from './components/Home';
+import Button from './components/Button';
 
 function App() {
 
-  const [total, setTotal] = useState('');
-  const [people, setPeople] = useState('')
-
   return (
-    <div className="app-container">
+    <Router>
+    <div className="app">
         <Header />
-        <MainCard total={total} setTotal={setTotal} people={people} setPeople={setPeople} />
+        <div className="content">
+            <Switch>
+                <Route exact path="/">
+                    <Home />
+                      <Link to="/main">
+                        <Button text="NEXT"/>
+                        </Link>
+                </Route>
+                <Route path="/main">
+                    <MainCard />
+                      <Link to="/">
+                        <Button text="BACK"/>
+                      </Link>
+                </Route>
+            </Switch>
+        </div>
     </div>
+</Router>
   );
 }
 
 export default App;
+
