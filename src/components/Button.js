@@ -1,6 +1,4 @@
 import { useEffect, useRef } from 'react'
-import Home from './Home';
-import MainCard from './MainCard';
 
 const Button = ( { text } ) => {
     const dot = useRef(true);
