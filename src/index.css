@@ -4,7 +4,7 @@ body,
 p {
   margin: 0;
   padding: 0;
-  background: black;
+  background: rgb(0, 0, 0);
   font-family: "Space Mono", monospace, sans-serif;
   color: rgb(71, 199, 178);
 }
@@ -48,7 +48,7 @@ a {
   display: block;
   font-size: large;
   border: none;
-  background: #666;
+  background: #222;
   color: white;
   cursor: pointer;
   outline: none;
@@ -103,7 +103,9 @@ a {
   color: rgb(71, 199, 178);
   height: 2.5em;
   width: 3.5em;
-  font-size: 0.8;
+  font-size: 1.2rem;
+  font-weight: 900;
+
 }
 .options button:focus {
   border: 1px solid white;
@@ -127,8 +129,11 @@ label {
   margin: 10px;
 }
 
-.form .tip {
-  /* margin: 10px; */
+.form .bill button {
+  background: none;
+  margin: 2px;
+  height: 2rem;
+  color: rgb(71, 199, 178);
 }
 .form .people {
   margin-top: 1.5em;
@@ -136,9 +141,10 @@ label {
 
 /* RESET BUTTON */
 .calculator button {
-  padding: 5px 15px;
+  font-size: large;
+  padding: 12px 18px;
   /* width: 100%; */
-  background-color: #666;
+  background-color: #888;
   border-radius: 20px;
   border: none;
   outline: none;
@@ -164,6 +170,7 @@ label {
 .calculator {
   display: flex;
   flex-direction: column;
+  font-size: larger;
 }
 .calculator-info {
   text-align: center;
@@ -182,3 +189,10 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+/* Media Queries */
+@media (max-width: 471px) { 
+  #CustomTip {
+    margin-top: 10px;
+  }
+ }
